@@ -9,5 +9,6 @@ compiler:
   -gcc
 
 script:
+  -cd Sorting/
   -cmake .
   -cmake --build .
