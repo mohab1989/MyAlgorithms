@@ -1,0 +1,11 @@
+language: C++
+
+sudo: enabled
+
+os:
+  -linux
+  -windows
+
+compiler:
+  -gcc
+  -clang
