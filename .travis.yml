@@ -4,8 +4,10 @@ sudo: enabled
 
 os:
   -linux
-  -windows
 
 compiler:
   -gcc
-  -clang
+
+script:
+  -cmake .
+  -cmake --build .
