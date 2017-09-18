@@ -3,12 +3,12 @@ language: Cpp
 sudo: enabled
 
 os:
-  -linux
+  - linux
 
 compiler:
-  -gcc
+  - gcc
 
 script:
-  -cd Sorting/
-  -cmake .
-  -cmake --build .
+  - cd Sorting/
+  - cmake .
+  - cmake --build .
