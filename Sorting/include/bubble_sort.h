@@ -19,13 +19,13 @@ void BubbleSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_order
 	{
 	case K_ascending: 
 	{
-		compare = LessThan;
+        compare = SortingCommon<T>::LessThan;
 		std::cout << "Sorting Order Ascending\n";
 		break;
 	}
 	case k_descending:
 	{
-		compare = MoreThan;
+        compare = SortingCommon<T>::MoreThan;
 		std::cout << "Sorting Order Descending\n";
 		break;
 	}
@@ -40,7 +40,7 @@ void BubbleSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_order
 	for (T& first_element : *sort_vector) {
 		for (T& second_element : *sort_vector) {
 			if (compare(first_element, second_element)) {
-				Swap(first_element, second_element);
+                SortingCommon<T>::Swap(first_element, second_element);
 			}
 		}
 	}

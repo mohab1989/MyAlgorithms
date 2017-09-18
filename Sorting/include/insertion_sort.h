@@ -18,13 +18,13 @@ void InsertionSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_or
 	{
 	case K_ascending:
 	{
-		compare = LessThan;
+        compare = SortingCommon<T>::LessThan;
 		std::cout << "Sorting Order Ascending\n";
 		break;
 	}
 	case k_descending:
 	{
-		compare = MoreThan;
+        compare = SortingCommon<T>::MoreThan;
 		std::cout << "Sorting Order Descending\n";
 		break;
 	}

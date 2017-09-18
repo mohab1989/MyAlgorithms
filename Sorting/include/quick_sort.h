@@ -24,7 +24,7 @@ void QuickSort<T>::QuickSortFunction(std::vector<T>& parent_vector, int left,int
 		while (!compare( parent_vector[j] , pivot) && parent_vector[j] != pivot)
 			j--;
 		if (i <= j) {
-			Swap(parent_vector[i], parent_vector[j]);
+            SortingCommon<T>::Swap(parent_vector[i], parent_vector[j]);
 			i++;
 			j--;
 		}
@@ -46,13 +46,13 @@ void QuickSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_order)
 	{
 	case K_ascending:
 	{
-		compare = LessThan;
+        compare = SortingCommon<T>::LessThan;
 		std::cout << "Sorting Order Ascending\n";
 		break;
 	}
 	case k_descending:
 	{
-		compare = MoreThan;
+        compare = SortingCommon<T>::MoreThan;
 		std::cout << "Sorting Order Descending\n";
 		break;
 	}

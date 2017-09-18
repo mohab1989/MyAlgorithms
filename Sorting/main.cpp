@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 	//auto Sort = SortingAlgorithms::GetSortingAlgorithm<int>(k_selection);
 	//auto Sort = SortingAlgorithms::GetSortingAlgorithm<int>(k_merge);
 	//auto Sort = SortingAlgorithms::GetSortingAlgorithm<int>(k_quick);
-	auto Sort = SortingAlgorithms::GetSortingAlgorithm<int>(k_counting);
+    auto Sort = SortingAlgorithms::GetSortingAlgorithm<int>(k_counting);
 
 	std::vector<int>m{9 ,2 ,3,6,23,8,7,9,4,5,4,11,27,567,80};
 	std::vector<int>p{ 3,8,2,1,5,4,6,7};
@@ -28,12 +28,15 @@ int main(int argc, char* argv[]) {
 	std::vector<int>c{ 5, 9 ,3 ,9 ,10 ,9 ,2 ,4 ,13 ,10 };
 	std::vector<char>chars{ 'b','e','a','w','d'};
 
-	std::vector<int>& input = sort_vector;
+    std::vector<int> input1 = sort_vector;
+    std::vector<int> input2 = sort_vector;
 	//SortingCommon<int>::DisplayVector(&input);
-	Sort(&input, sort_order);
+    Sort(&input1, sort_order);
 	//SortingCommon<int>::DisplayVector(&input);
 
 	//Sort(&p, k_descending);
 
-	system("pause");
+
+    //Sort = SortingAlgorithms::GetSortingAlgorithm<int>(k_merge);
+    //Sort(&input2, sort_order);
 }

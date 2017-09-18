@@ -60,13 +60,13 @@ void MergeSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_order)
 	{
 	case K_ascending:
 	{
-		compare = LessThanEqual;
+        compare = SortingCommon<T>::LessThanEqual;
 		std::cout << "Sorting Order Ascending\n";
 		break;
 	}
 	case k_descending:
 	{
-		compare = MoreThanEqual;
+        compare = SortingCommon<T>::MoreThanEqual;
 		std::cout << "Sorting Order Descending\n";
 		break;
 	}

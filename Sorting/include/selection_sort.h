@@ -19,13 +19,13 @@ void SelectionSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_or
 	{
 	case K_ascending:
 	{
-		compare = MoreThan;
+        compare = SortingCommon<T>::MoreThan;
 		std::cout << "Sorting Order Ascending\n";
 		break;
 	}
 	case k_descending:
 	{
-		compare = LessThan;
+        compare = SortingCommon<T>::LessThan;
 		std::cout << "Sorting Order Descending\n";
 		break;
 	}
@@ -49,7 +49,7 @@ void SelectionSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_or
 			}
 		}
 		if (first_element_id != min_max_id) {
-			Swap(first_element, (*sort_vector)[min_max_id]);
+            SortingCommon<T>::Swap(first_element, (*sort_vector)[min_max_id]);
 		}
 	}
 	end = std::chrono::system_clock::now();
