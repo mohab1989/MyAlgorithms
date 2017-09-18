@@ -1,4 +1,4 @@
-language: C++
+language: Cpp
 
 sudo: enabled
 
