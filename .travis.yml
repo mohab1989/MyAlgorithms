@@ -12,3 +12,4 @@ script:
   - cd Sorting/
   - cmake .
   - cmake --build .
+  - make test

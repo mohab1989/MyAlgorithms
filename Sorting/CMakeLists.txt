@@ -20,4 +20,5 @@ set_target_properties(Sorting PROPERTIES
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
 )
+add_test(Sorting_test Sorting)
 endif()
