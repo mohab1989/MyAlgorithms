@@ -16,7 +16,7 @@ add_executable(Sorting ${SOURCES})
 target_include_directories(Sorting PUBLIC ${PROJECT_SOURCE_DIR}/include ${GTEST_INCLUDE_DIRS} ${GMOCK_INCLUDE_DIRS})
 target_link_libraries(Sorting GTest::GTest GTest::Main ${GMOCK_BOTH_LIBRARIES})
 set_target_properties(Sorting PROPERTIES
-    CXX_STANDARD 11
+    CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
 )

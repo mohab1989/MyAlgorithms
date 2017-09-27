@@ -4,9 +4,9 @@
 
 template<class T> class CountingSort : public SortingCommon<T> {
 public:
-	CountingSort() {};
+    CountingSort()=default;
 	void Sort(std::vector<T>*, SortingOrder sorting_order = K_ascending);
-	~CountingSort() {};
+    virtual ~CountingSort() {}
 private:
 	void ArrangeAscending(T& min, T& max,
 		std::vector<int>& elements_count,std::vector<T>* sort_vector);

@@ -4,9 +4,9 @@
 
 template<class T> class BubbleSort : public SortingCommon<T> {
 public:
-	BubbleSort() {};
+    BubbleSort()=default;
 	void Sort(std::vector<T>*, SortingOrder sorting_order=K_ascending);
-	~BubbleSort() {};
+    virtual ~BubbleSort() {}
 };
 
 template<typename T>
@@ -14,7 +14,7 @@ void BubbleSort<T>::Sort(std::vector<T>* sort_vector, SortingOrder sorting_order
 	std::chrono::time_point<std::chrono::system_clock> start, end;
 	start = std::chrono::system_clock::now();
 	std::cout << "Bubble Sort started\n";
-	std::function<bool(T&, T&)> compare;
+    std::function<bool(T&, T&)> compare;
 	switch (sorting_order)
 	{
 	case K_ascending: 

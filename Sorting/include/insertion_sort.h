@@ -3,9 +3,9 @@
 #include"sorting_common.h"
 template<class T> class InsertionSort : public SortingCommon<T> {
 public:
-	InsertionSort() {};
+    InsertionSort()=default;
 	void Sort(std::vector<T>*, SortingOrder sorting_order = K_ascending);
-	~InsertionSort() {};
+    virtual ~InsertionSort() {}
 };
 
 template<typename T>

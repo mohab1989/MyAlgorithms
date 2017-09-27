@@ -3,9 +3,9 @@
 #include"sorting_common.h"
 template<class T> class QuickSort : public SortingCommon<T> {
 public:
-	QuickSort() {};
+    QuickSort()=default;
 	void Sort(std::vector<T>*, SortingOrder sorting_order = K_ascending);
-	~QuickSort() {};
+    virtual ~QuickSort() {}
 private:
 	std::function<bool(T&, T&)> compare;
 	void QuickSortFunction(std::vector<T>& parent_vector, int left, int right);

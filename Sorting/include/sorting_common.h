@@ -4,7 +4,7 @@
 #include<iostream>
 #include<vector>
 #include <functional>
-
+#include<functional>
 enum SortingOrder
 {
 	K_ascending,
@@ -14,9 +14,10 @@ enum SortingOrder
 template<class T> class SortingCommon
 {
 public:
-	SortingCommon() {};
-	~SortingCommon() {};
+    SortingCommon()=default;
+    virtual ~SortingCommon() {}
 	static void DisplayVector(std::vector<T>* vector);
+    virtual void Sort(std::vector<T>* sort_vector, SortingOrder sorting_order)=0;
 private:
 
 protected:
@@ -25,7 +26,7 @@ protected:
 	static bool MoreThan(T& first_element, T& second_element);
 	static bool LessThan(T& first_element, T& second_element);
 
-	static void Swap(T& first_element, T& second_element);
+    static void Swap(T& first_element, T& second_element);
 };
 template<typename T>
 bool SortingCommon<T>::MoreThanEqual(T& first_element, T& second_element) {

@@ -4,9 +4,9 @@
 
 template<class T> class SelectionSort : public SortingCommon<T> {
 public:
-	SelectionSort() {};
-	void Sort(std::vector<T>*, SortingOrder sorting_order = K_ascending);
-	~SelectionSort() {};
+    SelectionSort()=default;
+    void Sort(std::vector<T>*, SortingOrder sorting_order = K_ascending);
+    virtual ~SelectionSort() {}
 };
 
 template<typename T>

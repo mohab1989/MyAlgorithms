@@ -6,75 +6,49 @@
 #include"merge_sort.h"
 #include"quick_sort.h"
 #include"counting_sort.h"
+#include<memory>
 
 enum SortingAlgorithmType
 {
-	k_bubble,
-	k_insertion,
-	k_merge,
-	k_selection,
-	k_quick,
-	k_counting
+    k_bubble,
+    k_insertion,
+    k_merge,
+    k_selection,
+    k_quick,
+    k_counting
 };
 
 class SortingAlgorithms
 {
 public:
 	template<typename T>
-	static std::function<void(std::vector<T>*,SortingOrder)> GetSortingAlgorithm(SortingAlgorithmType sorting_type) {
-		switch (sorting_type)
+    static std::unique_ptr<SortingCommon<T>> GetSortingAlgorithm(SortingAlgorithmType sorting_type) {
+        switch (sorting_type)
 		{
 		case k_bubble:
-		{
-			BubbleSort<T> bubble_sort;
-			return
-				std::function<void(std::vector<T>*, SortingOrder)>
-				(std::bind(&BubbleSort<T>::Sort, &bubble_sort, std::placeholders::_1, std::placeholders::_2));
-			break;
+        {
+            return std::make_unique<BubbleSort<T>>(BubbleSort<T>());
 		}
-		case k_insertion:
-		{
-			InsertionSort<T> insertion_sort;
-			return
-				std::function<void(std::vector<T>*, SortingOrder)>
-				(std::bind(&InsertionSort<T>::Sort, &insertion_sort, std::placeholders::_1, std::placeholders::_2));
-			;
-			break;
-		}
-		case k_merge:
-		{
-			MergeSort<T> merge_sort;
-			return
-				std::function<void(std::vector<T>*,SortingOrder)>
-				(std::bind(&MergeSort<T>::Sort,&merge_sort,std::placeholders::_1,std::placeholders::_2));
-			break;
-		}
-		case k_selection:
-		{
-			SelectionSort<T> selection_sort;
-			return 
-				std::function<void(std::vector<T>*,SortingOrder)>
-				(std::bind(&SelectionSort<T>::Sort,&selection_sort,std::placeholders::_1,std::placeholders::_2));
-			break;
-		}
-		case k_quick:
-		{
-			QuickSort<T> quick_sort;
-			return
-			std::function<void(std::vector<T>*, SortingOrder)>
-				(std::bind(&QuickSort<T>::Sort, &quick_sort, std::placeholders::_1, std::placeholders::_2));
-
-			break;
-		}
-		case k_counting:
-		{
-			CountingSort<T> counting_sort;
-			return
-				std::function<void(std::vector<T>*, SortingOrder)>
-				(std::bind(&CountingSort<T>::Sort, &counting_sort, std::placeholders::_1, std::placeholders::_2));
-
-			break;
-		}
+        case k_insertion:
+        {
+            return std::make_unique<InsertionSort<T>>(InsertionSort<T>());
+        }
+        case k_merge:
+        {
+            return std::make_unique<MergeSort<T>>(MergeSort<T>());
+        }
+        case k_selection:
+        {
+            return std::make_unique<SelectionSort<T>>(SelectionSort<T>());
+        }
+        case k_quick:
+        {
+            return std::make_unique<QuickSort<T>>(QuickSort<T>());
+        }
+        case k_counting:
+        {
+            return std::make_unique<CountingSort<T>>(CountingSort<T>());
+        }
 
 		default:
 		{
@@ -82,7 +56,7 @@ public:
 			break;
 		}
 		}
-	}
+    }
 };
 
 #endif // !SORTING_ALGORITHMS_DEFINED
