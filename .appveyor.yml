@@ -1,0 +1,28 @@
+# Specify version format
+version: "1.0.{build}"
+
+# Build configuration
+platform:
+    - Win32
+	- x64
+
+configuration:
+    - Debug
+    - Release
+
+# Scripts that are called before repo cloneing
+init:
+    - cmd: cmake --version
+	- cmd: msbuild /version
+
+# Scripts to run before build
+before_build:
+    - cmd: cd Sorting
+	- cmd: md build
+	- cmd: cd build
+	- cmd: if "%platform%"=="Win32" set CMAKE_GENRATOR_NAME=Visual Studio 14 2015
+	- cmd: if "%platform%"=="x64" set CMAKE_GENRATOR_NAME=Visual Studio 14 2015 Win64
+	- cmd: cmake  -G "%CMAKE_GENRATOR_NAME%" ..
+# Build script
+build:
+    - cmd: cmake --build .
