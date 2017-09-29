@@ -25,5 +25,5 @@ before_build:
     - cmd: cmake  -G "%CMAKE_GENRATOR_NAME%" ..
 # Build script
 build:
-    project: Sorting.sln
+    project: C:\projects\myalgorithms\Sorting\build\Sorting.sln
     parallel: true
